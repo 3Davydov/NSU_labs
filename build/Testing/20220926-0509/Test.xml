@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20220926-0509-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.12.18081601-MSVC_2"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="LAPTOP-V8081F3U"
+	OSRelease=" Personal"
+	OSVersion=" (Build 19043)"
+	OSPlatform="x86"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="12"
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="18615"
+	TotalPhysicalMemory="16183"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2803"
+	>
+	<Testing>
+		<StartDateTime>Sep 26 18:51 [NON-UTF-8-BYTE-0xCD][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xE2][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xE1][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xF0][NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xEA][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xE5] [NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xF2][NON-UTF-8-BYTE-0xE0][NON-UTF-8-BYTE-0xED][NON-UTF-8-BYTE-0xE4][NON-UTF-8-BYTE-0xE0][NON-UTF-8-BYTE-0xF0][NON-UTF-8-BYTE-0xF2][NON-UTF-8-BYTE-0xED][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xE5] [NON-UTF-8-BYTE-0xE2][NON-UTF-8-BYTE-0xF0][NON-UTF-8-BYTE-0xE5][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xFF]</StartDateTime>
+		<StartTestTime>1664193098</StartTestTime>
+		<TestList>
+			<Test>./Tests/Tests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>Tests</Name>
+			<Path>./Tests</Path>
+			<FullName>./Tests/Tests</FullName>
+			<FullCommandLine>C:\Users\davyd\Desktop\example\build\Tests\Debug\Tests.exe</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.34534</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Users\davyd\Desktop\example\build\Tests\Debug\Tests.exe</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNksFOhDAQhu99ijnCASIsEGPiQaMxGxM1rJ4oMRUqaSwtaQvuvr1l2WyWzQrMadr5+/0zzaStEExUUBMmHBe+layhuMGtpkrjknS7EpdU/xjZYLoldcMprqSsODVUm9NUqwJXffbZo/yiQNntMXJIDz4J9Bo9GAX7A+iWGeqjzDtGDk9cfhE+1KnomJKipsJqqfHa5kw8gr7b9J5Va2FQBunHC+wjP7n3e3Vgq0O8Pl+oghMkUGt3khGitegIZyXonTBkOz5N8UPLD2f5q8keV5Yxi4gmW1zecLTELEbLgTE4YRTPIpPJL0gsZEAsWAervb6yajDSEO6iZQtnKFFeKX/FeJ//3WNQRPjnVnaGt7vN5vGhn/Dw1Ed/fgUVyg==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Sep 26 18:51 [NON-UTF-8-BYTE-0xCD][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xE2][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xE1][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xF0][NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xEA][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xE5] [NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xF2][NON-UTF-8-BYTE-0xE0][NON-UTF-8-BYTE-0xED][NON-UTF-8-BYTE-0xE4][NON-UTF-8-BYTE-0xE0][NON-UTF-8-BYTE-0xF0][NON-UTF-8-BYTE-0xF2][NON-UTF-8-BYTE-0xED][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xE5] [NON-UTF-8-BYTE-0xE2][NON-UTF-8-BYTE-0xF0][NON-UTF-8-BYTE-0xE5][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xFF]</EndDateTime>
+		<EndTestTime>1664193098</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

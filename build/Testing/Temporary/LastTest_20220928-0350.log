@@ -1,0 +1,39 @@
+Start testing: Sep 28 23:08 Новосибирское стандартное время
+----------------------------------------------------------
+1/1 Testing: Tests
+1/1 Test: Tests
+Command: "C:/Users/davyd/Desktop/example/build/Tests/Debug/Tests.exe"
+Directory: C:/Users/davyd/Desktop/example/build/Tests
+"Tests" start time: Sep 28 23:08 Новосибирское стандартное время
+Output:
+----------------------------------------------------------
+Running main() from c:\users\davyd\desktop\example\googletest\googletest\src\gtest_main.cc
+[==========] Running 6 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 6 tests from TestBigInt
+[ RUN      ] TestBigInt.test1
+[       OK ] TestBigInt.test1 (37 ms)
+[ RUN      ] TestBigInt.test2
+Invalid syntaxInvalid syntax[       OK ] TestBigInt.test2 (18 ms)
+[ RUN      ] TestBigInt.test3
+[       OK ] TestBigInt.test3 (1 ms)
+[ RUN      ] TestBigInt.test4
+Invalid syntaxInvalid syntaxInvalid syntax[       OK ] TestBigInt.test4 (1 ms)
+[ RUN      ] TestBigInt.test5
+Invalid syntax[       OK ] TestBigInt.test5 (229 ms)
+[ RUN      ] TestBigInt.test6
+[       OK ] TestBigInt.test6 (1 ms)
+[----------] 6 tests from TestBigInt (290 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 1 test suite ran. (291 ms total)
+[  PASSED  ] 6 tests.
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Passed.
+"Tests" end time: Sep 28 23:08 Новосибирское стандартное время
+"Tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 28 23:08 Новосибирское стандартное время

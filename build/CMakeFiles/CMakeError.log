@@ -1,0 +1,38 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: c:/Users/davyd/Desktop/lab_BigInt/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_db7ac.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine версии 15.9.21+g9802d43bc3 для .NET Framework
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+Сборка начата 04.10.2022 13:25:48.
+Проект "c:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\cmTC_db7ac.vcxproj" в узле 1 (целевые объекты по умолчанию).
+PrepareForBuild:
+  Создание каталога "cmTC_db7ac.dir\Debug\".
+  Создание каталога "C:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\Debug\".
+  Создание каталога "cmTC_db7ac.dir\Debug\cmTC_db7ac.tlog\".
+InitializeBuildStatus:
+  Создание "cmTC_db7ac.dir\Debug\cmTC_db7ac.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_db7ac.dir\Debug\\" /Fd"cmTC_db7ac.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue C:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.16.27048 для x86
+  (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_db7ac.dir\Debug\\" /Fd"cmTC_db7ac.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue C:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+c:\users\davyd\desktop\lab_bigint\build\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [c:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\cmTC_db7ac.vcxproj]
+Сборка проекта "c:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\cmTC_db7ac.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+
+Ошибка сборки.
+
+"c:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\cmTC_db7ac.vcxproj" (целевой объект по умолчанию) (1) ->
+(ClCompile конечный объект) -> 
+  c:\users\davyd\desktop\lab_bigint\build\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [c:\Users\davyd\Desktop\lab_BigInt\build\CMakeFiles\CMakeTmp\cmTC_db7ac.vcxproj]
+
+    Предупреждений: 0
+    Ошибок: 1
+
+Прошло времени 00:00:00.40
+
+
