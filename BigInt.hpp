@@ -69,6 +69,8 @@ int size_bit(std::bitset<LEN> ans);
 std::string bit_to_string(std::bitset<LEN> bit_arr, int len);
 
 BigInt::BigInt() {
+	number_str = "0";
+	number_bit = 0;
 	sign = PLUS;
 }
 
