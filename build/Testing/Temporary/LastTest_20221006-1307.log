@@ -1,0 +1,44 @@
+Start testing: Oct 06 20:42 Новосибирское стандартное время
+----------------------------------------------------------
+1/1 Testing: Tests
+1/1 Test: Tests
+Command: "C:/Users/davyd/Desktop/lab_BigInt/build/Tests/Debug/Tests.exe"
+Directory: C:/Users/davyd/Desktop/lab_BigInt/build/Tests
+"Tests" start time: Oct 06 20:42 Новосибирское стандартное время
+Output:
+----------------------------------------------------------
+Running main() from c:\users\davyd\desktop\lab_bigint\googletest\googletest\src\gtest_main.cc
+[==========] Running 7 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from TestBigInt_1
+[ RUN      ] TestBigInt_1.test1
+[       OK ] TestBigInt_1.test1 (28 ms)
+[ RUN      ] TestBigInt_1.test2
+[       OK ] TestBigInt_1.test2 (14 ms)
+[ RUN      ] TestBigInt_1.test3
+[       OK ] TestBigInt_1.test3 (1 ms)
+[----------] 3 tests from TestBigInt_1 (44 ms total)
+
+[----------] 4 tests from TestBigInt
+[ RUN      ] TestBigInt.test3
+[       OK ] TestBigInt.test3 (1 ms)
+[ RUN      ] TestBigInt.test4
+[       OK ] TestBigInt.test4 (1 ms)
+[ RUN      ] TestBigInt.test5
+[       OK ] TestBigInt.test5 (216 ms)
+[ RUN      ] TestBigInt.test6
+[       OK ] TestBigInt.test6 (1 ms)
+[----------] 4 tests from TestBigInt (221 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test suites ran. (266 ms total)
+[  PASSED  ] 7 tests.
+<end of output>
+Test time =   0.37 sec
+----------------------------------------------------------
+Test Passed.
+"Tests" end time: Oct 06 20:42 Новосибирское стандартное время
+"Tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 20:42 Новосибирское стандартное время

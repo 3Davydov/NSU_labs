@@ -1,88 +1,85 @@
 #include <gtest/gtest.h>
 #include "../BigInt.hpp"
+#include <vector>
 
-class TestBigInt : public ::testing::Test{
+class TestBigInt_1 : public ::testing::Test{
 public:
-    BigInt subj;
-    BigInt supportive_1;
-    BigInt supportive_2;
-    void SetUp(std::string input1, std::string input2, std::string input3){
-        BigInt tmp_subj(input1);
-        BigInt tmp_sup_1(input2);
-        BigInt tmp_sup_2(input3);
-        subj = tmp_subj;
-        supportive_1 = tmp_sup_1;
-        supportive_2 = tmp_sup_2;
+    std::vector <BigInt> data;
+    template <class Head> void SetUp(std::vector <BigInt> &data, Head head){
+        BigInt tmp(head);
+        data.push_back(tmp);
+    }
+    template <class Head, class... Args> void SetUp(std::vector <BigInt> &data, Head head, Args... args){
+        BigInt tmp(head);
+        data.push_back(tmp);
+        SetUp(data, args...);
     }
 };
-
 // Testing bool operators whith positive numbers
-TEST_F(TestBigInt, test1){
-    SetUp("9918446744073709551615", "9918446744073709551615", "19918446744073709551730");
-    EXPECT_TRUE(subj == supportive_1);
-    EXPECT_TRUE(subj != supportive_2);
-    EXPECT_TRUE(subj < supportive_2);
-    EXPECT_TRUE(subj >= supportive_1);
-    EXPECT_FALSE(subj > supportive_1);
-    EXPECT_FALSE(supportive_2 <= subj);
+TEST_F(TestBigInt_1, test1){
+    SetUp(data, "9918446744073709551615" /* data[0] */, "9918446744073709551615" /* data[1] */, "19918446744073709551730" /* data[2] */);
+    EXPECT_TRUE(data[0] == data[1]);
+    EXPECT_TRUE(data[0] != data[2]);
+    EXPECT_TRUE(data[0] < data[2]);
+    EXPECT_TRUE(data[0] >= data[1]);
+    EXPECT_FALSE(data[0] > data[1]);
+    EXPECT_FALSE(data[2] <= data[0]);
 }
 
 // Testing bool operators whith negative numbers
-TEST_F(TestBigInt, test2){
-    SetUp("-9918446744073709551615", "9918446744073709551615", "-19918446744073709551730");
-    EXPECT_FALSE(subj == supportive_1);
-    EXPECT_TRUE(subj != supportive_2);
-    EXPECT_FALSE(subj < supportive_2);
-    EXPECT_FALSE(subj >= supportive_1);
-    EXPECT_TRUE(supportive_1 > subj);
-    EXPECT_TRUE(supportive_2 <= subj);
+TEST_F(TestBigInt_1, test2){
+    SetUp(data, "-9918446744073709551615"/* data[0] */, "9918446744073709551615" /* data[1] */, "-19918446744073709551730" /* data[2] */);
+    EXPECT_FALSE(data[0] == data[1]);
+    EXPECT_TRUE(data[0] != data[2]);
+    EXPECT_FALSE(data[0] < data[2]);
+    EXPECT_FALSE(data[0] >= data[1]);
+    EXPECT_TRUE(data[1] > data[0]);
+    EXPECT_TRUE(data[2] <= data[0]);
 }
 
 // Testing unary operators whith positive numbers
-TEST_F(TestBigInt, test3){
-    SetUp("67", "66", "68");
-    EXPECT_TRUE(++subj == supportive_2);
-    EXPECT_TRUE(subj++ == supportive_2); // after that subj = 69
-    EXPECT_TRUE(--subj == supportive_2);
-    subj--;
-    subj--;
-    EXPECT_TRUE(subj == supportive_1);
+TEST_F(TestBigInt_1, test3){
+    SetUp(data, "67" /* data[0] */, "66" /* data[1] */, "68" /* data[2] */);
+    EXPECT_TRUE(++data[0] == data[2]);
+    EXPECT_TRUE(data[0]++ == data[2]); 
+    EXPECT_TRUE(--data[0] == data[2]);
+    data[0]--;
+    data[0]--;
+    EXPECT_TRUE(data[0] == data[1]);
 }
 
 // Testing unary operators whith negative numbers
-TEST_F(TestBigInt, test4){
-    SetUp("-66", "-66", "-67");
-    EXPECT_TRUE(--subj == supportive_2);
-    EXPECT_TRUE(subj-- == supportive_2); // after that subj = -68
-    EXPECT_TRUE(++subj == supportive_2);
-    subj++;
-    EXPECT_TRUE(subj == supportive_1);
+TEST_F(TestBigInt_1, test4){
+    SetUp(data, "-66" /* data[0] */, "-66" /* data[1] */, "-67" /* data [2] */);
+    EXPECT_TRUE(--data[0] == data[2]);
+    EXPECT_TRUE(data[0]-- == data[2]); // after that subj = 69
+    EXPECT_TRUE(++data[0] == data[2]);
+    data[0]++;
+    EXPECT_TRUE(data[0] == data[1]);
 }
 
 // Testing assigment operators
-TEST_F(TestBigInt, test5){
-    SetUp("9918446744073709551615", "9918446744073709551615", "19836893488147419103230");
-    subj += supportive_1;
-    EXPECT_TRUE(subj == supportive_2);
-    BigInt tmp_1("198368934881474191032300");
-    subj -= tmp_1;
-    EXPECT_TRUE(std::string(subj) == "-178532041393326771929070");
-    BigInt tmp_2("56");
-    subj *= tmp_2;
-    EXPECT_TRUE(std::string(subj) == "-9997794318026299228027920");
-    BigInt tmp_3("1983689348814741910323");
-    subj /= tmp_3;
-    EXPECT_TRUE(std::string(subj) == "-5040");
-    BigInt tmp_4("-1024");
-    subj %= tmp_4;
-    EXPECT_TRUE(std::string(subj) == "944");
+TEST_F(TestBigInt_1, test5){
+    SetUp(data, "9918446744073709551615" /* data[0] */, "9918446744073709551615" /* data[1] */, "19836893488147419103230" /* data[2] */,
+        "198368934881474191032300" /* data[3] */, "-178532041393326771929070" /* data[4] */, "56" /* data[5] */, 
+        "-9997794318026299228027920" /* data[6] */, "1983689348814741910323" /* data[7] */, "-5040" /* data[8] */, "-1024" /* data[9] */, "944" /* data[10] */);
+    data[0] += data[1];
+    EXPECT_TRUE(data[0] == data[2]);
+    data[0] -= data[3];
+    EXPECT_TRUE(data[0] == data[4]);
+    data[0] *= data[5];
+    EXPECT_TRUE(data[0] == data[6]);
+    data[0] /= data[7];
+    EXPECT_TRUE(data[0] == data[8]);
+    data[0] %= data[9];
+    EXPECT_TRUE(data[0] == data[10]);
 }
 
 // Testing assigment bool operators
-TEST_F(TestBigInt, test6){
-    SetUp("107", "12", "48");
-    subj &= supportive_1;
-    EXPECT_TRUE(std::string(subj) == "8");
-    subj |= supportive_2;
-    EXPECT_TRUE(std::string(subj) == "56");
+TEST_F(TestBigInt_1, test6){
+    SetUp(data, "107" /* data[0] */, "12" /* data[1] */, "48" /* data[2] */, "8" /* data[3] */, "56" /* data[4] */);
+    data[0] &= data[1];
+    EXPECT_TRUE(data[0] == data[3]);
+    data[0] |= data[2];
+    EXPECT_TRUE(data[0] == data[4]);
 }
