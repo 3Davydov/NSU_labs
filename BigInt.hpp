@@ -51,11 +51,6 @@ public:
 
 	size_t size() const;
 
-	void show() {
-		std::cout << number_bit << std::endl;
-		std::cout << number_str << std::endl;
-		std::cout << (int)sign << std::endl;
-	}
 private:
 	std::string number_str;
 	std::bitset<LEN> number_bit;
@@ -366,7 +361,9 @@ size_t BigInt::size() const {
 	BigInt copy(*this);
 	int len = size_bit(copy.number_bit);
 	copy.number_str = bit_to_string(copy.number_bit, len);
-	return copy.number_str.size();
+	size_t ans = copy.number_str.size();
+	sign == MINUS ? ans++ : ans;
+	return ans;
 }
 
 
