@@ -348,7 +348,21 @@ bool BigInt::operator>=(const BigInt& num) const {
 }
 
 BigInt::operator int() const {
-	return (int)number_bit.to_ullong();
+	int len = size_bit(number_bit);
+	BigInt copy(*this);
+	BigInt int_max(2147483647), int_min(-2147483647);
+	for (int i = len; i > 31; i--){
+		copy.number_bit[i] = 0;
+	}
+	if (sign == PLUS){
+		int index = 0;
+		while (copy >= int_max) {copy.number_bit[index] = 0; index++;}
+	}
+	else{
+		int index = 0;
+		while (copy <= int_min) {copy.number_bit[index] = 0; index++;}
+	}
+	return (int)(copy.number_bit.to_ulong() * pow(-1, sign + 1));
 }
 
 BigInt::operator std::string() const {
