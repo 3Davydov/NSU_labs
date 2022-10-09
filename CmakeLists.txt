@@ -15,11 +15,13 @@ set(Header
     BigInt.hpp
 )
 set(Sources
-    BigInt.cpp
+    BigInt_Class_members.cpp
+    BigInt_Supportive_Functions.cpp
+    BigInt_main.cpp
 )
 
-add_executable(a ${Sources})
+add_executable(BigInt_m BigInt_main.cpp BigInt_Class_members.cpp  BigInt_Supportive_Functions.cpp BigInt.hpp)
 
-add_library(${This} STATIC ${Sources} ${Header})
+add_library(${This} STATIC BigInt_Class_members.cpp  BigInt_Supportive_Functions.cpp BigInt.hpp)
 
 add_subdirectory(Tests)

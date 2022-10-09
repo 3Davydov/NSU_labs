@@ -256,7 +256,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt.cpp" />
+    <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Class_members.cpp" />
+    <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Supportive_Functions.cpp" />
     <ClInclude Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt.hpp" />
   </ItemGroup>
   <ItemGroup>

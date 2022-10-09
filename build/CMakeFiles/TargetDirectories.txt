@@ -1,4 +1,4 @@
-C:/Users/davyd/Desktop/lab_BigInt/build/CMakeFiles/a.dir
+C:/Users/davyd/Desktop/lab_BigInt/build/CMakeFiles/BigInt_m.dir
 C:/Users/davyd/Desktop/lab_BigInt/build/CMakeFiles/BigInt.dir
 C:/Users/davyd/Desktop/lab_BigInt/build/CMakeFiles/INSTALL.dir
 C:/Users/davyd/Desktop/lab_BigInt/build/CMakeFiles/RUN_TESTS.dir

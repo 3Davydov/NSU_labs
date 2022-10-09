@@ -115,13 +115,13 @@
       <Project>{F9552B68-096B-3E0E-8920-77B41C6149CD}</Project>
       <Name>BigInt</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\davyd\Desktop\lab_BigInt\build\BigInt_m.vcxproj">
+      <Project>{87856BA3-BDF6-3490-892E-1D82DBE33243}</Project>
+      <Name>BigInt_m</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\davyd\Desktop\lab_BigInt\build\Tests\Tests.vcxproj">
       <Project>{97502CBF-6906-391D-8D3B-9181B170D2DF}</Project>
       <Name>Tests</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\davyd\Desktop\lab_BigInt\build\a.vcxproj">
-      <Project>{73534662-CC4A-3A84-A182-B9FBAA7EBCF6}</Project>
-      <Name>a</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\davyd\Desktop\lab_BigInt\build\googletest\googlemock\gmock.vcxproj">
       <Project>{F4513EFD-E5EF-3F63-A53A-ABAA41454803}</Project>
