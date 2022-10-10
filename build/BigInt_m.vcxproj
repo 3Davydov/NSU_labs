@@ -307,6 +307,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_main.cpp" />
     <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Class_members.cpp" />
     <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Supportive_Functions.cpp" />
+    <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Overload_Operators.cpp" />
     <ClInclude Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt.hpp" />
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,9 @@
     <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Supportive_Functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt_Overload_Operators.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\davyd\Desktop\lab_BigInt\BigInt.hpp">

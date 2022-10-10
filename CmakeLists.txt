@@ -17,11 +17,12 @@ set(Header
 set(Sources
     BigInt_Class_members.cpp
     BigInt_Supportive_Functions.cpp
-    BigInt_main.cpp
+    #BigInt_main.cpp
+    BigInt_Overload_Operators.cpp
 )
 
-add_executable(BigInt_m BigInt_main.cpp BigInt_Class_members.cpp  BigInt_Supportive_Functions.cpp BigInt.hpp)
+add_executable(BigInt_m BigInt_main.cpp ${Sources} ${Header})
 
-add_library(${This} STATIC BigInt_Class_members.cpp  BigInt_Supportive_Functions.cpp BigInt.hpp)
+add_library(${This} STATIC ${Sources} ${Header})
 
 add_subdirectory(Tests)

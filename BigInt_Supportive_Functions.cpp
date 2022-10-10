@@ -1,4 +1,3 @@
-
 #include "BigInt.hpp"
 #ifndef SUPPORTIVE_FUNCTIONS
 #define SUPPORTIVE FUNCTIONS
