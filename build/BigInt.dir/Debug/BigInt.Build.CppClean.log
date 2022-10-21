@@ -1,6 +1,8 @@
 c:\users\davyd\desktop\lab_bigint\build\bigint.dir\debug\bigint.pdb
-c:\users\davyd\desktop\lab_bigint\build\bigint.dir\debug\bigint_main.obj
+c:\users\davyd\desktop\lab_bigint\build\bigint.dir\debug\bigint_supportive_functions.obj
 c:\users\davyd\desktop\lab_bigint\build\bigint.dir\debug\bigint_class_members.obj
+c:\users\davyd\desktop\lab_bigint\build\bigint.dir\debug\bigint_main.obj
+c:\users\davyd\desktop\lab_bigint\build\bigint.dir\debug\bigint_overload_operators.obj
 c:\users\davyd\desktop\lab_bigint\build\cmakefiles\generate.stamp
 c:\users\davyd\desktop\lab_bigint\build\debug\bigint.lib
 c:\users\davyd\desktop\lab_bigint\build\debug\bigint.pdb
