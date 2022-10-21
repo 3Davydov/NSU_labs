@@ -8,19 +8,10 @@
 
 #endif
 
-#ifndef DIFF
+#if !defined(DIFF) && !defined(LEN) && !defined(PLUS) && !defined(MINUS) 
 #define DIFF 48
-#endif
-
-#ifndef LEN
 #define LEN 1024
-#endif
-
-#ifndef PLUS
 #define PLUS 1
-#endif
-
-#ifndef MINUS
 #define MINUS 0
 #endif
 
@@ -32,7 +23,6 @@ public:
 	BigInt(std::string input);
 	BigInt(const BigInt& input);
 	BigInt(BigInt&& input);
-	//~BigInt();
 
 	BigInt& operator=(const BigInt&);
 	BigInt& operator=(BigInt&&);

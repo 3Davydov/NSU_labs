@@ -1,4 +1,11 @@
 #include "BigInt.hpp"
+
+#if !defined(FIRST_IS_BIGGER) && !defined(SECOND_IS_BIGGER) && !defined(EQUAL)
+#define FIRST_IS_BIGGER 1
+#define SECOND_IS_BIGGER 2
+#define EQUAL 3
+#endif
+
 #ifndef SUPPORTIVE_FUNCTIONS
 #define SUPPORTIVE FUNCTIONS
 
@@ -19,18 +26,18 @@ int BigInt::b_comp(std::bitset<LEN> bit_arr1, std::bitset<LEN> bit_arr2){
 	len2 = size_bit(bit_arr2);
 	len1 > len2 ? len = len1 : len = len2;
 	for (int i = 0; i < len; i++) {
-		if (bit_arr1[len - i -1] > bit_arr2[len - i - 1]) return 1;
-		if (bit_arr1[len - i - 1] < bit_arr2[len - i - 1]) return 2;
+		if (bit_arr1[len - i -1] > bit_arr2[len - i - 1]) return FIRST_IS_BIGGER;
+		if (bit_arr1[len - i - 1] < bit_arr2[len - i - 1]) return SECOND_IS_BIGGER;
 	}
-	return 3;
+	return EQUAL;
 }
 
 int BigInt::b_comp(std::bitset<LEN> bit_arr1, std::bitset<LEN> bit_arr2) const{
 	for (int i = 0; i < LEN; i++) {
-		if (bit_arr1[LEN - i - 1] > bit_arr2[LEN - i - 1]) return 1;
-		if (bit_arr1[LEN - i - 1] < bit_arr2[LEN - i - 1]) return 2;
+		if (bit_arr1[LEN - i - 1] > bit_arr2[LEN - i - 1]) return FIRST_IS_BIGGER;
+		if (bit_arr1[LEN - i - 1] < bit_arr2[LEN - i - 1]) return SECOND_IS_BIGGER;
 	}
-	return 3;
+	return EQUAL;
 }
 
 std::bitset<LEN> BigInt::b_sum(std::bitset<LEN> ans, std::bitset<LEN> num) {
@@ -163,6 +170,7 @@ std::string operator_sum(std::string& s1, std::string& s2) {
 std::string bit_to_string(std::bitset<LEN> bit_arr, int len) {
 	std::string ans;
 	std::string grade;
+	if (bit_arr == 0) return "0";
 	grade.push_back('1');
 	for (int i = 0; i < len; i++) {
 		if (bit_arr[i] == 1) ans = operator_sum(ans, grade);

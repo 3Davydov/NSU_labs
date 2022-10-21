@@ -17,7 +17,6 @@ set(Header
 set(Sources
     BigInt_Class_members.cpp
     BigInt_Supportive_Functions.cpp
-    #BigInt_main.cpp
     BigInt_Overload_Operators.cpp
 )
 

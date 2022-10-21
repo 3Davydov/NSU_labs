@@ -1,35 +1,57 @@
 #include <gtest/gtest.h>
 #include "../BigInt.hpp"
 #include <vector>
-
-class TestBigInt_1 : public ::testing::Test{
+class MultipleParams{
 public:
     std::vector <BigInt> data;
-    template <class Head> void SetUp(std::vector <BigInt> &data, Head head){
+    template <class Head> void Set_up(std::vector <BigInt> &data, Head head){
         BigInt tmp(head);
         data.push_back(tmp);
     }
-    template <class Head, class... Args> void SetUp(std::vector <BigInt> &data, Head head, Args... args){
+    template <class Head, class... Args> void Set_up(std::vector <BigInt> &data, Head head, Args... args){
         BigInt tmp(head);
         data.push_back(tmp);
-        SetUp(data, args...);
+        Set_up(data, args...);
     }
 };
-// Testing constructors
-TEST_F(TestBigInt_1, test1){
-    SetUp(data, "0" /*data[0]*/, "9918446744073709551615" /*data[1]*/, "709551615" /*data[2]*/);
-    BigInt new_1(709551615), new_2("9918446744073709551615");
-    EXPECT_TRUE(new_1 == data[2]);
-    EXPECT_TRUE(new_2 == data[1]);
-    BigInt new_3(new_2);
-    EXPECT_TRUE(new_3 == new_2);
-    BigInt new_4(std::move(new_2));
-    EXPECT_TRUE(new_4 == new_2);
+
+class TestBigInt1 : public ::testing::TestWithParam<std::tuple<std::string, int, BigInt>>, public MultipleParams{};
+class TestBigInt2 : public ::testing::TestWithParam<std::tuple<std::string, std::string, std::string>>, public MultipleParams{};
+
+class TestBigInt3 : public ::testing::TestWithParam<std::tuple<std::string, std::string, std::string>>, public MultipleParams{};
+
+class TestBigInt4 : public ::testing::TestWithParam<std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, 
+                                                    std::string, std::string, std::string, std::string>>, public MultipleParams{};
+
+class TestBigInt5 : public ::testing::TestWithParam<std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, 
+                                                    std::string, std::string>>, public MultipleParams{};
+                                                    
+class TestBigInt6 : public ::testing::TestWithParam<std::tuple<std::string, std::string, std::string, std::string, std::string>>,
+                    public MultipleParams{};
+
+class TestBigInt7 : public ::testing::TestWithParam<std::tuple<std::string, std::string>>, public MultipleParams{};
+
+TEST_P(TestBigInt1, testing_constructors){
+    std::string init_whith_str = std::get<0>(GetParam());
+    int init_whith_int = std::get<1>(GetParam());
+    BigInt init_whith_BigInt = std::get<2>(GetParam());
+    Set_up(data, init_whith_str, init_whith_int, init_whith_BigInt); 
+    EXPECT_TRUE((int) data[1] == init_whith_int);
+    EXPECT_TRUE((std::string(data[0])) == init_whith_str);
+    EXPECT_TRUE(data[2] == init_whith_BigInt);
 }
 
-// Testing bool operators whith positive numbers
-TEST_F(TestBigInt_1, test2){
-    SetUp(data, "9918446744073709551615" /* data[0] */, "9918446744073709551615" /* data[1] */, "19918446744073709551730" /* data[2] */);
+INSTANTIATE_TEST_CASE_P(testing_constructors, TestBigInt1, ::testing::Values (
+                                                                            std::make_tuple("12345", 234234, 123),
+                                                                            std::make_tuple("0", 0, 0),
+                                                                            std::make_tuple("-63463298758923573245783426", -579235, -9879682)
+                                                                            ));
+
+TEST_P(TestBigInt2, testing_bool_operators){
+    std::string param1 = std::get<0>(GetParam());
+    std::string param2 = std::get<1>(GetParam());
+    std::string param3 = std::get<2>(GetParam());
+    Set_up(data, param1, param2, param3); 
     EXPECT_TRUE(data[0] == data[1]);
     EXPECT_TRUE(data[0] != data[2]);
     EXPECT_TRUE(data[0] < data[2]);
@@ -38,20 +60,16 @@ TEST_F(TestBigInt_1, test2){
     EXPECT_FALSE(data[2] <= data[0]);
 }
 
-// Testing bool operators whith negative numbers
-TEST_F(TestBigInt_1, test3){
-    SetUp(data, "-9918446744073709551615"/* data[0] */, "9918446744073709551615" /* data[1] */, "-19918446744073709551730" /* data[2] */);
-    EXPECT_FALSE(data[0] == data[1]);
-    EXPECT_TRUE(data[0] != data[2]);
-    EXPECT_FALSE(data[0] < data[2]);
-    EXPECT_FALSE(data[0] >= data[1]);
-    EXPECT_TRUE(data[1] > data[0]);
-    EXPECT_TRUE(data[2] <= data[0]);
-}
+INSTANTIATE_TEST_CASE_P(testing_bool_operators, TestBigInt2, ::testing::Values (
+                                            std::make_tuple("9918446744073709551615", "9918446744073709551615", "19918446744073709551730"),
+                                            std::make_tuple("-19918446744073709551730", "-19918446744073709551730", "-9918446744073709551615")
+                                            ));
 
-// Testing unary operators whith positive numbers
-TEST_F(TestBigInt_1, test4){
-    SetUp(data, "67" /* data[0] */, "66" /* data[1] */, "68" /* data[2] */);
+TEST_P(TestBigInt3, testing_unary_operators){
+    std::string param1 = std::get<0>(GetParam());
+    std::string param2 = std::get<1>(GetParam());
+    std::string param3 = std::get<2>(GetParam());
+    Set_up(data, param1, param2, param3); 
     EXPECT_TRUE(++data[0] == data[2]);
     EXPECT_TRUE(data[0]++ == data[2]); 
     EXPECT_TRUE(--data[0] == data[2]);
@@ -60,39 +78,51 @@ TEST_F(TestBigInt_1, test4){
     EXPECT_TRUE(data[0] == data[1]);
 }
 
-// Testing unary operators whith negative numbers
-TEST_F(TestBigInt_1, test5){
-    SetUp(data, "-66" /* data[0] */, "-66" /* data[1] */, "-67" /* data [2] */);
-    EXPECT_TRUE(--data[0] == data[2]);
-    EXPECT_TRUE(data[0]-- == data[2]); // after that subj = 69
-    EXPECT_TRUE(++data[0] == data[2]);
-    data[0]++;
+INSTANTIATE_TEST_CASE_P(testing_unary_operators, TestBigInt3, ::testing::Values (
+                                                                                std::make_tuple("67", "66", "68"),
+                                                                                std::make_tuple("-67", "-68", "-66")
+                                                                                ));
+
+TEST_P(TestBigInt4, testing_assigment_operators){
+    std::string param1 = std::get<0>(GetParam());
+    std::string param2 = std::get<1>(GetParam());
+    std::string param3 = std::get<2>(GetParam());
+    std::string param4 = std::get<3>(GetParam());
+    std::string param5 = std::get<4>(GetParam());
+    std::string param6 = std::get<5>(GetParam());
+    std::string param7 = std::get<6>(GetParam());
+    std::string param8 = std::get<7>(GetParam());
+    std::string param9 = std::get<8>(GetParam());
+    std::string param10 = std::get<9>(GetParam());
+    Set_up(data, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10); 
+    data[0] += data[0];
     EXPECT_TRUE(data[0] == data[1]);
+    data[1] -= data[2];
+    EXPECT_TRUE(data[1] == data[3]);
+    data[3] *= data[4];
+    EXPECT_TRUE(data[3] == data[5]);
+    data[5] /= data[6];
+    EXPECT_TRUE(data[5] == data[7]);
+    data[7] %= data[8];
+    EXPECT_TRUE(data[7] == data[9]);
 }
 
-// Testing assigment operators
-TEST_F(TestBigInt_1, test6){
-    SetUp(data, "9918446744073709551615" /* data[0] */, "9918446744073709551615" /* data[1] */, "19836893488147419103230" /* data[2] */,
-        "198368934881474191032300" /* data[3] */, "-178532041393326771929070" /* data[4] */, "56" /* data[5] */, 
-        "-9997794318026299228027920" /* data[6] */, "1983689348814741910323" /* data[7] */, "-5040" /* data[8] */, "-1024" /* data[9] */, "944" /* data[10] */);
-    
-    data[0] += data[1];
-    EXPECT_TRUE(data[0] == data[2]);
-    data[0] -= data[3];
-    EXPECT_TRUE(data[0] == data[4]);
-    data[0] *= data[5];
-    EXPECT_TRUE(data[0] == data[6]);
-    data[0] /= data[7];
-    EXPECT_TRUE(data[0] == data[8]);
-    data[0] %= data[9];
-    EXPECT_TRUE(data[0] == data[10]);
-}
+INSTANTIATE_TEST_CASE_P(testing_assigment_operators, TestBigInt4, ::testing::Values (
+                                                            std::make_tuple("9918446744073709551615", "19836893488147419103230", 
+                                                            "198368934881474191032300", "-178532041393326771929070", "56",
+                                                             "-9997794318026299228027920", "1983689348814741910323", "-5040", "-1024", "944")
+                                                             ));
 
-// Testing assigment bool operators
-TEST_F(TestBigInt_1, test7){
-    SetUp(data, "107" /* data[0] */, "12" /* data[1] */, "48" /* data[2] */, "8" /* data[3] */, "56" /* data[4] */, "54" /* data[5] */, 
-    "28" /*data[6]*/, "-42" /*data[7]*/);
-
+TEST_P(TestBigInt5, testing_assigment_bool__operators){
+    std::string param1 = std::get<0>(GetParam());
+    std::string param2 = std::get<1>(GetParam());
+    std::string param3 = std::get<2>(GetParam());
+    std::string param4 = std::get<3>(GetParam());
+    std::string param5 = std::get<4>(GetParam());
+    std::string param6 = std::get<5>(GetParam());
+    std::string param7 = std::get<6>(GetParam());
+    std::string param8 = std::get<7>(GetParam());
+    Set_up(data, param1, param2, param3, param4, param5, param6, param7, param8);  
     data[0] &= data[1];
     EXPECT_TRUE(data[0] == data[3]);
     data[0] |= data[2];
@@ -101,17 +131,35 @@ TEST_F(TestBigInt_1, test7){
     EXPECT_TRUE(data[5] == data[7]);
 }
 
-// Testing arithmetic operators
-TEST_F(TestBigInt_1, test8){
-    SetUp(data, "9918446744073709551615" /* data[0] */, "9918446744073709551615" /* data[1] */, "19836893488147419103230" /* data[2] */, 
-    "-9918446744073709551615" /* data[3] */, "-9918446744073709551616" /* data[4] */, "1" /*data[5]*/);
-    EXPECT_TRUE((data[0] + data[1]) == data[2]);
-    EXPECT_TRUE((data[3] - data[4]) == data[5]);
+INSTANTIATE_TEST_CASE_P(testing_assigment_bool__operators, TestBigInt5, ::testing::Values (
+                                                                                            std::make_tuple("107", "12", "48", "8", "56",
+                                                                                                             "54", "28", "-42")
+                                                                                            ));
+
+TEST_P(TestBigInt6, testing_assigment_bool__operators){
+    std::string param1 = std::get<0>(GetParam());
+    std::string param2 = std::get<1>(GetParam());
+    std::string param3 = std::get<2>(GetParam());
+    std::string param4 = std::get<3>(GetParam());
+    std::string param5 = std::get<4>(GetParam());
+    Set_up(data, param1, param2, param3, param4, param5);  
+    EXPECT_TRUE((data[0] + data[0]) == data[1]);
+    EXPECT_TRUE((data[2] - data[3]) == data[4]);
 }
 
-// Testing transformation operators
-TEST_F(TestBigInt_1, test9){
-    SetUp(data, "-5368709125" /*data[0]*/, "-1073741829"/*data[1]*/);
+INSTANTIATE_TEST_CASE_P(testing_assigment_bool__operators, TestBigInt6, ::testing::Values (
+                                                            std::make_tuple("9918446744073709551615", "19836893488147419103230", 
+                                                            "-9918446744073709551615", "-9918446744073709551616", "1"
+                                                            )));
+
+TEST_P(TestBigInt7, testing_assigment_bool__operators){
+    std::string param1 = std::get<0>(GetParam());
+    std::string param2 = std::get<1>(GetParam());
+    Set_up(data, param1, param2);  
     EXPECT_TRUE((int)data[0 == data[1]]);
     EXPECT_TRUE(std::string(data[1]) == "-1073741829");
 }
+
+INSTANTIATE_TEST_CASE_P(testing_assigment_bool__operators, TestBigInt7, ::testing::Values (
+                                                            std::make_tuple("-5368709125", "-1073741829"
+                                                            )));
