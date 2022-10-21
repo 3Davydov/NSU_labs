@@ -1,4 +1,4 @@
-build
+lab_BigInt/build
 *.log
 *.pdb
 *.tlog
