@@ -1,8 +1,1 @@
-/build
-*.log
-*.pdb
-*.tlog
-*.obj
-*.ilk
-*.exe
-*.lib
+build/
